@@ -1,0 +1,13 @@
+Lembre-se de encapsular suas classes, criando getters e settes, quando necessário. E criar construtores para as classes também.
+
+Para melhor entendimento do código, sugiro que melhore os nomes dos métodos e atributos de suas classes (a classe Node, em particular, tem algumas assinaturas de métodos e nomes de atributos que <o>).
+
+Trabalhe com símbolos mais comuns em todos os sistemas de codificação como "->" (ao invés de ?), "." (ao invés do ?), "+" (ao invés do ?) e "~" (ao invés do ¬). Assim você evita problemas de compatibilidade entre tipos de codificação.
+
+Uma sugestão para melhorar a clareza (e a divisão de responsabilidades) de suas classes é verificar a necessidade de três classes distintas para a construção da tabela. Perceba que TruthTable conversa com todas as outras classes, quando ela deveria apenas conversar com Node (ou, no máximo, Formule).
+
+Pelo que percebi, TruthTable seria a classe principal aqui. É ela que tem que conversar com a interface Android. Node e Formule trabalham juntas para montar a árvore (subfórmulas e valores), correto? Mas é TruthTable que está avaliando as subfórmulas e definindo se elas são true ou false. Acredito que esta responsabilidade deveria ser da fórmula, não? E creio que ela já está fazendo um serviço semelhante no método order(). O método getModel() de TruthTable faz praticamente o mesmo trabalho, não?
+
+A classe Possibilities pode se transformar em um ou mais métodos internos da classe TruthTable, já que ela serve apenas para fornecer métodos auxiliares para TruthTable. Perceba que o único atributo é uma variável chamada n (¬¬) e, pelo que entendi, n reflete o número de proposições contidas na fórmula. Esse valor é de conhecimento de Formule, que pode muito bem conversar diretamente com TruthTable ;)
+
+Ao final, retire todos os métodos de escrita do código ;)
