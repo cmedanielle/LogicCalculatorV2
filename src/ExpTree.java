@@ -50,16 +50,16 @@ public class ExpTree {
 			// precisamos retornar a referência aos nós intetrmediários percorridos
 			return actualRoot;
 		} // o mesmo processo se repete para os demais
-		else if (subFormula.contains(".")) {
-			int index = subFormula.indexOf(".");
-			actualRoot = new ExpTreeNode(".");
+		else if (subFormula.contains("+")) {
+			int index = subFormula.indexOf("+");
+			actualRoot = new ExpTreeNode("+");
 			actualRoot.setLeftChild(buildTree(actualRoot.getLeftChild(), subFormula.substring(0, index)));
 			actualRoot.setRightChild(
 					buildTree(actualRoot.getRightChild(), subFormula.substring(++index, subFormula.length())));
 			return actualRoot;
-		} else if (subFormula.contains("+")) {
-			int index = subFormula.indexOf("+");
-			actualRoot = new ExpTreeNode("+");
+		} else if (subFormula.contains(".")) {
+			int index = subFormula.indexOf(".");
+			actualRoot = new ExpTreeNode(".");
 			actualRoot.setLeftChild(buildTree(actualRoot.getLeftChild(), subFormula.substring(0, index)));
 			actualRoot.setRightChild(
 					buildTree(actualRoot.getRightChild(), subFormula.substring(++index, subFormula.length())));
