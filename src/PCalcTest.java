@@ -2,8 +2,9 @@ import java.util.Arrays;
 
 public class PCalcTest {
 	
-	public static void main(String[] args) {		
-		TruthTable tt = new TruthTable("A.C+~B");
+	public static void main(String[] args) {
+		
+		TruthTable tt = new TruthTable("A+(B.~A)+B");
 		System.out.println("** Tabela-verdade Resultante **\n");
 		
 		// retorna a tabela-verdade para a fórmula

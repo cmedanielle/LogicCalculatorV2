@@ -57,6 +57,7 @@ public class TruthTable {
 
 						// guarda o valor da avaliação da subfórmula na tabela-verdade
 						evaluation[actualRow][actualColumn] = mainTree.evaluate(propsValue, actualRoot);
+						System.out.println(mainTree.infixTransversal(actualRoot));
 						// chama a próxima linha
 						createTable(actualRoot, ++actualRow, actualColumn);
 					}

@@ -10,6 +10,8 @@ public class ExpTreeNode {
 	private ExpTreeNode leftChild;
 	private ExpTreeNode rightChild;
 
+	public ExpTreeNode() {}
+	
 	// construtor + getters e setters
 	public ExpTreeNode(String token) {
 		this.token = token;
